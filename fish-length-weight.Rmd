@@ -1,0 +1,55 @@
+---
+title: "eds_212_Day_1"
+author: "Shale"
+date: "8/2/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+```
+
+# R Markdown Day 1 EOD
+## Regarding Fishes
+*Some text elucidating a lifetime of research into the proportionality of our swimmy friends^not food!^ in their natural habitat(H_2_O)*
+
+# attempt at loading a photo did not go well
+
+
+
+```{r}
+fish_weight = function(fish_l, a_parameter, b_parameter) {
+  
+  a_parameter * (fish_l ^ b_parameter)
+  
+}
+# milkfish
+fish_weight(fish_l = 60, a_parameter = 0.0905, b_parameter = 2.52)
+# giant trevally
+fish_weight(fish_l = 60, a_parameter = 0.0353, b_parameter = 3.05)
+# great barracuda
+fish_weight(fish_l = 60, a_parameter = 0.0181, b_parameter = 3.27)
+
+```
+```{r}
+# As a sequence
+fish_length = seq(from = 0, to = 200, by = 1)
+
+barracuda_weight = function(fish_length, a_parameter, b_parameter) {
+  
+  a_parameter * (fish_length ^ b_parameter)
+  
+}
+barracuda_Weight = barracuda_weight(fish_length = fish_length, a_parameter = 0.0353, b_parameter = 3.05)
+
+# convert into data frame
+barracuda_frame = data.frame(fish_length, barracuda_Weight)
+
+# and present it with ggplot
+ggplot(data = barracuda_frame, aes(x = fish_length, y = barracuda_Weight)) +
+  geom_point() +
+  labs(x = "Length (cm)", y = "Weight (g)", title = "Barracuda Length vs. Weight", subtitle = "Just for fun")
+```
+
