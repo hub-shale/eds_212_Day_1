@@ -16,6 +16,7 @@ library(tidyverse)
 *Some text elucidating a lifetime of research into the proportionality of our swimmy friends^not food!^ in their natural habitat(H_2_O)*
 
 # attempt at loading a photo did not go well
+# adding text to confirm that I still can't get a photo here, and to update github
 
 
 
